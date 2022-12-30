@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    dsgfjsdkghfdlh
 
     private fun showBottomNav() {
         binding.bottomNavigation.visibility = View.VISIBLE
