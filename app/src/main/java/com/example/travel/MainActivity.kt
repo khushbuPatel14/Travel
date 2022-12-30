@@ -32,9 +32,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNav()
-
-
-
         binding.logout.setOnClickListener {
 
             val sharedPreferences =
