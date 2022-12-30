@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    hello is this
 
     private fun showBottomNav() {
         binding.bottomNavigation.visibility = View.VISIBLE
