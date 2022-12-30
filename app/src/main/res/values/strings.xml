@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Travel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="card">Card</string>
+    <string name="card_detail">Card Detail</string>
+    <string name="hoteldetail">Hotel-Baujahr 1858, Letzte Gesamt-Renovierung 2012, Anzahl Etagen 7, Gesamtanzahl Zimmer 50, Anzahl Einzelzimmer 50, Anzahl Doppelzimmer 50, Anzahl Zimmer mit Klimaanlage 50, Hotel ganzjährig geöffnet, Rezeption 24 Stunden besetzt, Frühester Check-in 15:00, Spätester Check-out 12:00, Englisch sprechendes Personal tagsüber, Englisch sprechendes Personal nachts, Hotel, Stadthotel, Businesshotel, Art / Designhotel, Boutique Hotel, Tagungs- / Kongresshotel, Familienhotel, Nichtraucherhotel, Nichtraucherzimmer 50, Anzahl Babybetten 1,Hotel-Baujahr 1858, Letzte Gesamt-Renovierung 2012, Anzahl Etagen 7, Gesamtanzahl Zimmer 50, Anzahl Einzelzimmer 50, Anzahl Doppelzimmer 50, Anzahl Zimmer mit Klimaanlage 50, Hotel ganzjährig geöffnet, Rezeption 24 Stunden besetzt, Frühester</string>
+</resources>

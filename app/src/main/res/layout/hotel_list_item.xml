@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.travel.model.hotellist.HotelList.Data.AppPresentationQueryAppV2.Section" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/cardViewHotelList"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_5sdp"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="@dimen/_10sdp"
+            android:transitionName="@{@string/card(data.singleCardContent)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgCardHotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:transitionName="card_item"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCardTitle"
+                    style="@style/TextViewTitle"
+                    android:text="@={data.SingleCardContent.cardTitle.hotelName}"
+                    app:layout_constraintTop_toBottomOf="@id/imgCardHotel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_margin="@dimen/_10sdp" />
+
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:id="@+id/rbCardRating"
+
+                    android:isIndicator="true"
+                    android:rating="@{data.SingleCardContent.BubbleRating.rating.floatValue()}"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardTitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_margin="@dimen/_5sdp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCardNumReview"
+                    style="@style/TextViewDec"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:text="@{data.SingleCardContent.BubbleRating.NumberReviews.string}"
+
+                    app:layout_constraintTop_toTopOf="@id/rbCardRating"
+                    app:layout_constraintBottom_toBottomOf="@id/rbCardRating"
+                    app:layout_constraintStart_toEndOf="@id/rbCardRating"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCardPrice"
+                    style="@style/TextViewDec"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:text="@{data.SingleCardContent.CommerceInfo.PriceForDisplay.string.toString()}"
+                    app:layout_constraintTop_toBottomOf="@id/rbCardRating"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCardDescription"
+                    style="@style/TextViewDec"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:text="@{data.SingleCardContent.CommerceInfo.Details.text.toString()}"
+                    app:layout_constraintTop_toBottomOf="@id/tvCardPrice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
