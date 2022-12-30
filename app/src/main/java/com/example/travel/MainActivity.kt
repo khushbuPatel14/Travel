@@ -44,12 +44,16 @@ class MainActivity : AppCompatActivity() {
            navController.navigate(R.id.action_hotelListFragment_to_loginFragment)
         }
     }
+
+    //
     private fun setupNav() {
         bottomNavigationView = binding.bottomNavigation
         toolbar = binding.mainToolbar
 
         navController = findNavController(R.id.mainFragment)
         NavigationUI.setupWithNavController(bottomNavigationView,navController)
+
+
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.hotelListFragment -> {
@@ -66,7 +70,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    hello is this
 
     private fun showBottomNav() {
         binding.bottomNavigation.visibility = View.VISIBLE
