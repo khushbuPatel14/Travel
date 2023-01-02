@@ -1,6 +1,7 @@
 package com.example.travel.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 
 import android.os.Bundle
@@ -23,7 +24,10 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.travel.R
 import com.example.travel.databinding.FragmentLoginBinding
+
+import com.example.travel.extension.showToast
 import com.example.travel.viewmodel.LoginViewModel
+import java.security.cert.Extension
 
 
 class LoginFragment : Fragment() {
@@ -114,7 +118,9 @@ class LoginFragment : Fragment() {
             val pwd = binding.edPassword.text.toString()
             viewModel.loginUser(username = username, pwd = pwd)
 
-            Toast.makeText(context, "Login Successfully", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(context, "Login Successfully", Toast.LENGTH_SHORT).show()
+        context?.showToast("Login Successfully")
+
 
             findNavController().navigate(R.id.action_loginFragment_to_hotelListFragment)
             edUserEmail.setText("")

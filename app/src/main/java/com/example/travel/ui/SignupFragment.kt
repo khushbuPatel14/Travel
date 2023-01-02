@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.travel.R
 import com.example.travel.databinding.FragmentSignupBinding
+import com.example.travel.extension.*
 
 class SignupFragment : Fragment() {
 
@@ -80,24 +81,16 @@ class SignupFragment : Fragment() {
 
         binding.btnSignup.setOnClickListener {
 
-            if (edSignUpFullName.text?.trim().toString().equals("")) {
-                edSignUpFullName.error = "Enter Full Name"
+            if (!edSignUpFullName.validateNameText()) {
                 edSignUpFullName.requestFocus()
-            } else if (edSignUpEmail.text?.trim().toString().equals("")) {
-                edSignUpEmail.error = "Enter Email Id"
+            } else if (!edSignUpEmail.isValidEmail()) {
                 edSignUpEmail.requestFocus()
-            } else if (!edSignUpEmail.text.toString().matches(emailPattern.toRegex())) {
-                edSignUpEmail.error = "Enter valid Email Id"
-                edSignUpEmail.requestFocus()
-            } else if (edSignUpPassword.text?.trim().toString().equals("")) {
-                edSignUpPassword.error = "Enter Password"
+            } else if (!edSignUpPassword.validatePassword()) {
                 edSignUpPassword.requestFocus()
-            } else if (!edSignUpPassword.text.toString().matches(passwordPattern.toRegex())) {
-                edSignUpPassword.error = "Enter valid Password"
-                edSignUpPassword.requestFocus()
-            } else if (edSignUpConfirmPassword.text?.trim().toString() == "") {
-                edSignUpConfirmPassword.error = "Enter Confirm Password"
+
+            } else if (!edSignUpConfirmPassword.validateConfirmPassword()) {
                 edSignUpConfirmPassword.requestFocus()
+
             } else if (!edSignUpConfirmPassword.text?.trim().toString()
                     .contentEquals(edSignUpPassword.text.toString())
             ) {
@@ -105,10 +98,8 @@ class SignupFragment : Fragment() {
                 edSignUpConfirmPassword.requestFocus()
 
             } else {
-
                 findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
-
-                Toast.makeText(context, "Registration Successfully", Toast.LENGTH_SHORT).show()
+                context?.showToast("Registration Successfully",Toast.LENGTH_LONG)
             }
         }
     }
