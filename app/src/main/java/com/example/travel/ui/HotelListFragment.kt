@@ -94,17 +94,17 @@ class HotelListFragment : Fragment(), ClickForDetail {
 
                     binding.progressBar.visibility = View.GONE
 
-                    Log.d(
-                        "IMAGE",
-                        it.data?.data?.appPresentationQueryAppListV2?.get(0)?.sections?.get(9)?.singleCardContent?.cardPhotos?.get(
-                            0
-                        )?.sizes?.urlTemplate.toString()
-                    )
+//                    Log.d(
+//                        "IMAGE",
+//                        it.data?.data?.appPresentationQueryAppListV2?.get(0)?.sections?.get(9)?.singleCardContent?.cardPhotos?.get(
+//                            0
+//                        )?.sizes?.urlTemplate.toString()
+//                    )
                     myList.clear()
                     myList.addAll(it.data?.data?.appPresentationQueryAppListV2?.get(0)?.sections as ArrayList<HotelList.Data.AppPresentationQueryAppV2.Section>)
 //myList.add(it.data?.data?.appPresentationQueryAppListV2?.get(0)?.sections?.get(9)?.singleCardContent?.cardTitle?.hotelName)
                     searchData()
-                     myList.notifyAll()
+                    adapter.notifyDataSetChanged()
                 }
                 else -> {}
             }

@@ -1,12 +1,14 @@
 package com.example.travel.api
 
+
+
 import com.example.travel.constant.Constant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ApiClient {
+object ApiClientHotelList {
     var mHttpLoggingInterceptor = HttpLoggingInterceptor()
         .setLevel(HttpLoggingInterceptor.Level.BODY)
 
@@ -15,25 +17,12 @@ object ApiClient {
         .addInterceptor(mHttpLoggingInterceptor)
         .build()
 
-    var mRetrofit: Retrofit? = null
+    private var mRetrofit: Retrofit? = null
 
-
-    val client: Retrofit?
+    val clientHotel: Retrofit?
         get() {
             if(mRetrofit == null){
                 mRetrofit = Retrofit.Builder()
-                    .baseUrl(Constant.BASE_URL)
-                    .client(mOkHttpClient)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-            }
-            return mRetrofit
-        }
-
-    val clientHotelDetail: Retrofit?
-        get() {
-            if(mRetrofit == null){
-               mRetrofit = Retrofit.Builder()
                     .baseUrl(Constant.BASE_URL_HOTEL_LIST)
                     .client(mOkHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
@@ -41,8 +30,6 @@ object ApiClient {
             }
             return mRetrofit
         }
-
-
 
 
 }

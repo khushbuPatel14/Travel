@@ -38,7 +38,7 @@ class HotelListViewModel(application: Application) : AndroidViewModel(applicatio
 
             } catch (ex: Exception) {
                 hotelResult.value = BaseResponse.Error(ex.message)
-                Log.d("DISPLAY","error")
+                Log.d("DISPLAY",ex.message.toString())
             }
        }
    }

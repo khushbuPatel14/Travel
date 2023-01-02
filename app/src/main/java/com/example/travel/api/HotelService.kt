@@ -12,7 +12,7 @@ interface HotelListService {
     @POST("hotels/v2/list")
     @Headers(
         "Content-Type:application/json",
-        "X-RapidAPI-Key:f8011c6077msh9e1315ecd4f7a34p16a16djsnc288c98f0e35",
+        "X-RapidAPI-Key:67d1da7063msh53973a1a05bf220p1a9b2bjsn3eb83cadadbe",
         "X-RapidAPI-Host:travel-advisor.p.rapidapi.com")
 
     suspend fun getHotelList(@Body hotelRequest: HotelRequest): Response<HotelList>
@@ -20,7 +20,7 @@ interface HotelListService {
     companion object {
 
         fun getApiHotel(): HotelListService? {
-            return ApiClient.clientHotel?.create(HotelListService::class.java)
+            return ApiClientHotelList.clientHotel?.create(HotelListService::class.java)
         }
     }
 
