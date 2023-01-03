@@ -1,5 +1,6 @@
 package com.example.travel.ui
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcel
@@ -49,11 +50,15 @@ class HotelDetailPageFragment() : Fragment() {
 
         ViewCompat.setTransitionName(binding.imageDetailHotel, "card_item_detail")
 
+        activity?.setActionBar(binding.toolbarCoordinator as android.widget.Toolbar)
+
         val coll_toolbar = binding.collapsingToolbar
         coll_toolbar.title = "Hotail Detail"
+
 //        coll_toolbar.setContentScrimColor(resources.getColor(R.color.brown))
         coll_toolbar.setContentScrimColor(ContextCompat.getColor(requireContext(), R.color.brown))
         coll_toolbar.expandedTitleGravity = Gravity.TOP
+
         coll_toolbar.setExpandedTitleColor(ContextCompat.getColor(requireContext(), R.color.white))
 //        coll_toolbar.setExpandedTitleColor(resources.getColor(R.color.white))
         return binding.root

@@ -7,22 +7,27 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.travel.FireStore
 import com.example.travel.R
 import com.example.travel.databinding.FragmentSignupBinding
 import com.example.travel.extension.*
+import com.example.travel.model.SignupDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SignupFragment : Fragment() {
 
     private lateinit var binding: FragmentSignupBinding
 
-    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+"
-    private val passwordPattern = ".{6,}"
+    private lateinit var  mAuth: FirebaseAuth
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +35,8 @@ class SignupFragment : Fragment() {
     ): View {
 
         binding = FragmentSignupBinding.inflate(layoutInflater)
+
+        mAuth = FirebaseAuth.getInstance()
 
 
         checkValidation()
@@ -74,6 +81,8 @@ class SignupFragment : Fragment() {
     }
 
     private fun checkValidation() {
+
+
         val edSignUpFullName = binding.edSignupFullName
         val edSignUpEmail = binding.edSignupEmail
         val edSignUpPassword = binding.edSignupPassword
@@ -98,9 +107,31 @@ class SignupFragment : Fragment() {
                 edSignUpConfirmPassword.requestFocus()
 
             } else {
-                findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
-                context?.showToast("Registration Successfully",Toast.LENGTH_LONG)
+
+                mAuth.createUserWithEmailAndPassword(edSignUpEmail.text.toString().trim(),edSignUpPassword.text.toString().trim()).addOnCompleteListener(requireActivity()) {
+                    if (it.isSuccessful) {
+                        Toast.makeText(context, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
+                       val user = SignupDatabase(edSignUpEmail.text.toString(),edSignUpPassword.text.toString())
+                        FireStore().registerUser(this,user)
+                    }
+                    else {
+
+                        Log.d("FIRE",it.exception.toString())
+
+                        context?.showToast("Registration Failed",Toast.LENGTH_SHORT)
+                    }
+                }
+
+
             }
         }
     }
+
+    fun userRegisteredSuccess() {
+
+        FirebaseAuth.getInstance().signOut()
+        findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
+    }
+
+
 }

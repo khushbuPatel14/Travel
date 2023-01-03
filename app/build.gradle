@@ -47,8 +47,19 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.firebase:firebase-auth:21.0.2'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.2'
+
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+
+
+    // Firebase Authentication Dependency
+    implementation "com.google.firebase:firebase-auth:21.1.0"
+    // Firebase Cloud Firestore Dependency
+    implementation 'com.google.firebase:firebase-firestore:24.4.1'
+    // Firebase Storage Dependency
+    implementation 'com.google.firebase:firebase-storage:20.1.0'
+    // Firebase Messaging Dependency
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
+
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.2'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'

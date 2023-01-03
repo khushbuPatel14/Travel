@@ -18,7 +18,7 @@ fun Context.showToast(
 
 fun EditText.isValidEmail(): Boolean {
 
-    val email = text.toString()
+    val email = text.toString().trim()
     return if (email.isEmpty()) {
         error = "Please enter email id"
         false
@@ -68,7 +68,7 @@ fun EditText.validateNameText(): Boolean {
 
     val nameText = text.toString()
 
-    return if (nameText.isNotEmpty()) {
+    return if (nameText.isEmpty()) {
         error = "Enter name"
         false
     } else {

@@ -96,7 +96,7 @@
                 android:drawablePadding="@dimen/_10sdp"
                 android:drawableTint="@color/dark_brown"
                 android:hint="Email"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:padding="@dimen/_10sdp"
                 android:textColorHint="@color/dark_brown" />
