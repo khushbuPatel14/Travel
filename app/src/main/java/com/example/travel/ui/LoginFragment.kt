@@ -121,7 +121,6 @@ class LoginFragment : Fragment() {
             //Toast.makeText(context, "Login Successfully", Toast.LENGTH_SHORT).show()
         context?.showToast("Login Successfully")
 
-
             findNavController().navigate(R.id.action_loginFragment_to_hotelListFragment)
             edUserEmail.setText("")
             edUserEmail.clearFocus()

@@ -6,37 +6,40 @@
     app:startDestination="@id/splashFragment">
 
 
-    <fragment android:id="@+id/splashFragment"
+    <fragment
+        android:id="@+id/splashFragment"
         android:name="com.example.travel.ui.SplashFragment"
         tools:layout="@layout/fragment_splash">
 
         <action
             android:id="@+id/action_splashFragment_to_introFragment"
-            app:enterAnim="@anim/fade_in"
             app:destination="@id/introFragment"
+            app:enterAnim="@anim/fade_in"
             app:launchSingleTop="true"
             app:popUpTo="@+id/nav_graph"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_hotelListFragment"
-            app:popUpTo="@id/nav_graph"
-            app:destination="@id/hotelListFragment" />
+            app:destination="@id/hotelListFragment"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
 
-    <fragment android:id="@+id/introFragment"
+    <fragment
+        android:id="@+id/introFragment"
         android:name="com.example.travel.ui.IntroFragment"
         tools:layout="@layout/fragment_intro">
         <action
             android:id="@+id/action_introFragment_to_loginFragment"
-            app:enterAnim="@anim/fade_in"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/fade_in" />
         <action
             android:id="@+id/action_introFragment_to_signupFragment"
-            app:enterAnim="@anim/fade_in"
-            app:destination="@id/signupFragment" />
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/fade_in" />
     </fragment>
 
-    <fragment android:id="@+id/loginFragment"
+    <fragment
+        android:id="@+id/loginFragment"
         android:name="com.example.travel.ui.LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -47,7 +50,8 @@
             app:destination="@id/signupFragment" />
     </fragment>
 
-    <fragment android:id="@+id/signupFragment"
+    <fragment
+        android:id="@+id/signupFragment"
         android:name="com.example.travel.ui.SignupFragment"
         tools:layout="@layout/fragment_signup">
         <action
@@ -55,32 +59,29 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
-    <fragment android:id="@+id/hotelListFragment"
+    <fragment
+        android:id="@+id/hotelListFragment"
         android:name="com.example.travel.ui.HotelListFragment"
         tools:layout="@layout/fragment_hotel_list">
         <action
-            android:id="@+id/action_hotelListFragment_to_attractionFragment"
-            app:destination="@id/attractionFragment"
-            app:popUpTo="@+id/nav_graph"
-            app:launchSingleTop="true"
-            app:popUpToInclusive="true"
-
-            />
-        <action
             android:id="@+id/action_hotelListFragment_to_hotelDetailPageFragment"
             app:destination="@id/hotelDetailPageFragment"
-            app:popUpTo="@+id/hotelDetailPageFragment"/>
+            app:popUpTo="@+id/hotelDetailPageFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_hotelListFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+
     </fragment>
 
-    <fragment android:id="@+id/attractionFragment"
+    <fragment
+        android:id="@+id/attractionFragment"
         android:name="com.example.travel.ui.AttractionFragment"
         tools:layout="@layout/fragment_attraction" />
 
- <fragment android:id="@+id/hotelDetailPageFragment"
-     android:name="com.example.travel.ui.HotelDetailPageFragment"
-     tools:layout="@layout/fragment_hotel_detail_page" />
+    <fragment
+        android:id="@+id/hotelDetailPageFragment"
+        android:name="com.example.travel.ui.HotelDetailPageFragment"
+        tools:layout="@layout/fragment_hotel_detail_page" />
 
 </navigation>

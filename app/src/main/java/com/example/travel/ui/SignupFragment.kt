@@ -110,14 +110,12 @@ class SignupFragment : Fragment() {
 
                 mAuth.createUserWithEmailAndPassword(edSignUpEmail.text.toString().trim(),edSignUpPassword.text.toString().trim()).addOnCompleteListener(requireActivity()) {
                     if (it.isSuccessful) {
-                        Toast.makeText(context, "Successfully Singed Up", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Registration Successfully", Toast.LENGTH_SHORT).show()
                        val user = SignupDatabase(edSignUpEmail.text.toString(),edSignUpPassword.text.toString())
                         FireStore().registerUser(this,user)
                     }
                     else {
-
                         Log.d("FIRE",it.exception.toString())
-
                         context?.showToast("Registration Failed",Toast.LENGTH_SHORT)
                     }
                 }

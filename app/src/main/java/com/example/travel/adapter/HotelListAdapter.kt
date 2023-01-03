@@ -123,10 +123,8 @@ class HotelListAdapter(private val context: HotelListFragment , private val myLi
     }
 
     override fun getFilter(): Filter {
-
         return object : Filter(){
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-
                 val charSearch = constraint.toString()
                 searchList = if (charSearch.isEmpty()) {
                     myList
@@ -142,11 +140,9 @@ class HotelListAdapter(private val context: HotelListFragment , private val myLi
                 val filterResults = FilterResults()
                 filterResults.values = searchList
                 return filterResults
-
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-
                 searchList = p1?.values as ArrayList<HotelList.Data.AppPresentationQueryAppV2.Section>
                 notifyDataSetChanged()
 

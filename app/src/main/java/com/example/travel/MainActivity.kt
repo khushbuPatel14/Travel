@@ -1,22 +1,18 @@
 package com.example.travel
 
+
+
 import android.os.Bundle
 import android.view.View
-import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.travel.databinding.ActivityMainBinding
-
 import com.google.android.material.appbar.MaterialToolbar
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -51,8 +47,9 @@ class MainActivity : AppCompatActivity() {
         toolbar = binding.mainToolbar
 
         navController = findNavController(R.id.mainFragment)
-        NavigationUI.setupWithNavController(bottomNavigationView,navController)
 
+        bottomNavigationView.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(bottomNavigationView,navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
@@ -63,7 +60,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.attractionFragment ->
                 {
                     showBottomNav()
-
                 }
 
                 else -> hideBottomNav()
@@ -87,6 +83,4 @@ class MainActivity : AppCompatActivity() {
 //        super.onBackPressed()
 //
 //    }
-
-
 }

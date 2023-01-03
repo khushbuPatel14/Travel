@@ -84,7 +84,7 @@
                     android:id="@+id/tvCardPrice"
                     style="@style/TextViewDec"
                     android:layout_margin="@dimen/_10sdp"
-                    android:text="@{data.SingleCardContent.CommerceInfo.PriceForDisplay.string.toString()}"
+                    android:text="@{`Price : ` + data.SingleCardContent.CommerceInfo.PriceForDisplay.string.toString()}"
                     app:layout_constraintTop_toBottomOf="@id/rbCardRating"
                     app:layout_constraintStart_toStartOf="parent" />
 

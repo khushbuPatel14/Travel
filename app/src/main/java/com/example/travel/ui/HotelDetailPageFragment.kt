@@ -50,7 +50,6 @@ class HotelDetailPageFragment() : Fragment() {
 
         ViewCompat.setTransitionName(binding.imageDetailHotel, "card_item_detail")
 
-        activity?.setActionBar(binding.toolbarCoordinator as android.widget.Toolbar)
 
         val coll_toolbar = binding.collapsingToolbar
         coll_toolbar.title = "Hotail Detail"
